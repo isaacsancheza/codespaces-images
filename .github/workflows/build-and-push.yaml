@@ -38,4 +38,5 @@ jobs:
         with:
           context: ./${{ github.ref_name }}/
           push: true
-          tags: ${{ env.IMAGE_NAME }}:${{ github.ref_name }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
