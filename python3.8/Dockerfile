@@ -127,7 +127,7 @@ RUN set -eux; \
 	\
 	pip --version
 
-ARG WORKDIR=/codespace
+ARG WORKDIR=/workspace
 ARG USERNAME=codespace
 
 RUN apt-get update  \
