@@ -127,16 +127,8 @@ RUN set -eux; \
 	\
 	pip --version
 
-ARG USERNAME=python
-ARG USER_UID=1000
-ARG USER_GID=$USER_UID
-
 RUN apt-get update  \
     && export DEBIAN_FRONTEND=noninteractive \
-    #
-	# add non-root user
-	&& groupadd --gid $USER_GID $USERNAME \
-    && useradd -s /bin/zsh --uid $USER_UID --gid $USER_GID -m $USERNAME \
 	#
 	# remove dependencies to build python
 	&& apt-get remove -y wget gnupg libssl-dev build-essential \
@@ -158,5 +150,8 @@ WORKDIR $WORKDIR
 RUN if [ -e Pipfile.lock ]; then \
 		pipenv install --system --deploy --ignore-pipfile --dev; \
 	fi
+
+# chown /codespace
+RUN chown -R $USERNAME:USERNAME $WORKDIR
 
 USER $USERNAME
