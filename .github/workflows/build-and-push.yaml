@@ -39,5 +39,5 @@ jobs:
         with:
           context: ./${{ github.event.inputs.name }}/
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ github.repository }}:${{ github.event.inputs.name }}
+          # labels: ${{ steps.meta.outputs.labels }}
