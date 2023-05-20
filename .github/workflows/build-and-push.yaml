@@ -4,8 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        required: true
-  
+        type: choice
+        options:
+          - debian
+          - python3.8
+
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
@@ -40,4 +43,3 @@ jobs:
           context: ./${{ github.event.inputs.name }}/
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.event.inputs.name }}
-          # labels: ${{ steps.meta.outputs.labels }}
