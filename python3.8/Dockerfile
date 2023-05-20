@@ -156,5 +156,3 @@ RUN if [ -e Pipfile.lock ]; then \
 
 # chown /codespace
 RUN chown -R $USERNAME:$USERNAME $WORKDIR
-
-USER $USERNAME
