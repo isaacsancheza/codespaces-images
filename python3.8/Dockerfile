@@ -4,7 +4,7 @@ FROM ghcr.io/isaacsancheza/images:debian
 RUN apt-get update  \
     && export DEBIAN_FRONTEND=noninteractive \
     #
-    && apt-get install -y --no-install-recommends wget gnupg openssl libssl-dev build-essential
+    && apt-get install -y --no-install-recommends gnupg openssl libssl-dev build-essential
 
 # the following was copied from https://github.com/docker-library/python/blob/331890ef059fae05f84c652520b78c340526dc71/3.8/bullseye/Dockerfile
 
@@ -134,7 +134,7 @@ RUN apt-get update  \
     && export DEBIAN_FRONTEND=noninteractive \
 	#
 	# remove dependencies to build python
-	&& apt-get remove -y wget gnupg libssl-dev build-essential \
+	&& apt-get remove -y gnupg libssl-dev build-essential \
 	#
 	# apt clean-up
     && apt-get autoremove -y  \
