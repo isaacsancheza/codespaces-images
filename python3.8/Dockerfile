@@ -127,6 +127,9 @@ RUN set -eux; \
 	\
 	pip --version
 
+ARG WORKDIR=/codespace
+ARG USERNAME=codespace
+
 RUN apt-get update  \
     && export DEBIAN_FRONTEND=noninteractive \
 	#
@@ -152,6 +155,6 @@ RUN if [ -e Pipfile.lock ]; then \
 	fi
 
 # chown /codespace
-RUN chown -R $USERNAME:USERNAME $WORKDIR
+RUN chown -R $USERNAME:$USERNAME $WORKDIR
 
 USER $USERNAME
