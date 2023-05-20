@@ -39,5 +39,5 @@ jobs:
         with:
           context: ./${{ github.event.inputs.name }}/
           push: true
-          tags: ${{ github.repository }}:${{ github.event.inputs.name }}
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.event.inputs.name }}
           # labels: ${{ steps.meta.outputs.labels }}
