@@ -127,13 +127,9 @@ RUN set -eux; \
 	\
 	pip --version
 
-ARG WORKDIR=/workspace
-ARG USERNAME=codespace
-
-RUN apt-get update  \
-    && export DEBIAN_FRONTEND=noninteractive \
+# remove dependencies used to build python
+RUN export DEBIAN_FRONTEND=noninteractive \
 	#
-	# remove dependencies to build python
 	&& apt-get remove -y gnupg libssl-dev build-essential \
 	#
 	# apt clean-up
@@ -143,16 +139,3 @@ RUN apt-get update  \
 
 # install pipenv
 RUN pip --disable-pip-version-check --no-cache-dir install pipenv
-
-# copy Pipfile and Pipfile.lock
-COPY Pipfile* $WORKDIR
-
-WORKDIR $WORKDIR
-
-# install pipenv dependencies
-RUN if [ -e Pipfile.lock ]; then \
-		pipenv install --system --deploy --ignore-pipfile --dev; \
-	fi
-
-# chown /codespace
-RUN chown -R $USERNAME:$USERNAME $WORKDIR
