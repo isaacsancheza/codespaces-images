@@ -103,3 +103,6 @@ USER root
 
 # todo.sh permissions
 RUN chmod 644 /usr/share/bash-completion/completions/todo
+
+# chown /codespace
+RUN chown -R $USERNAME:$USERNAME $WORKDIR
