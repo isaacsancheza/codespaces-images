@@ -52,7 +52,7 @@ RUN apt-get update  \
     && apt-get install -y --reinstall ca-certificates \
     # 
     # install zsh
-    && apt-get install -y --no-install-recommends git zsh curl wget \
+    && apt-get install -y --no-install-recommends git zsh curl wget unzip \
     #
 	# add non-root user
 	&& groupadd --gid $USER_GID $USERNAME \
@@ -65,11 +65,22 @@ RUN apt-get update  \
 
 # install todo.sh
 COPY --from=BASE /usr/local/bin/todo.sh /usr/local/bin/todo.sh
-
 COPY --from=BASE /usr/share/bash-completion/completions/todo /usr/share/bash-completion/completions/todo
 
 # copy oh-my-zsh installer
 COPY --from=BASE $WORKDIR/omz-installer.sh $WORKDIR/omz-installer.sh
+
+# download and install aws-cli
+RUN curl -sL https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o aws-cli.zip \
+    && unzip aws-cli.zip \
+    && ./aws/install \
+    && rm -rf aws-cli.zip aws
+
+# download and install sam-cli
+RUN curl -sL https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip -o aws-sam-cli.zip \
+    && unzip aws-sam-cli.zip -d sam-installation \
+    && ./sam-installation/install \
+    && rm -rf aws-sam-cli.zip sam-installation
 
 # cd /workspace
 WORKDIR $WORKDIR
