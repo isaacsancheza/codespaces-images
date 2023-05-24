@@ -9,7 +9,7 @@ RUN apt-get update  \
     && apt-get install -y --reinstall ca-certificates \
     # 
     # install zsh
-    && apt-get install -y --no-install-recommends git curl less build-essential \
+    && apt-get install -y --no-install-recommends git curl build-essential \
     #
     # clean-up/
     && apt-get autoremove -y  \
@@ -52,7 +52,7 @@ RUN apt-get update  \
     && apt-get install -y --reinstall ca-certificates \
     # 
     # install zsh
-    && apt-get install -y --no-install-recommends git zsh curl wget unzip \
+    && apt-get install -y --no-install-recommends git zsh curl less wget unzip \
     #
 	# add non-root user
 	&& groupadd --gid $USER_GID $USERNAME \
