@@ -9,7 +9,7 @@ RUN apt-get update  \
     && apt-get install -y --reinstall ca-certificates \
     # 
     # install zsh
-    && apt-get install -y --no-install-recommends git curl build-essential \
+    && apt-get install -y --no-install-recommends git curl less build-essential \
     #
     # clean-up/
     && apt-get autoremove -y  \
