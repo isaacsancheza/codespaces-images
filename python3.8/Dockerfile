@@ -4,7 +4,14 @@ FROM ghcr.io/isaacsancheza/images:debian
 RUN apt-get update  \
     && export DEBIAN_FRONTEND=noninteractive \
     #
-    && apt-get install -y --no-install-recommends gnupg openssl libssl-dev build-essential
+	# basic deps
+    && apt-get install -y --no-install-recommends gnupg openssl build-essential \
+	#
+	# additional modules
+	&& apt-get install -y --no-install-recommends gdb lcov pkg-config \
+		libbz2-dev libffi-dev libgdbm-dev libgdbm-compat-dev liblzma-dev \
+      	libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev \
+      	lzma lzma-dev tk-dev uuid-dev zlib1g-dev
 
 # the following was copied from https://github.com/docker-library/python/blob/331890ef059fae05f84c652520b78c340526dc71/3.8/bullseye/Dockerfile
 
@@ -130,7 +137,14 @@ RUN set -eux; \
 # remove dependencies used to build python
 RUN export DEBIAN_FRONTEND=noninteractive \
 	#
-	&& apt-get remove -y gnupg libssl-dev build-essential \
+	# basic deps
+	&& apt-get remove -y gnupg build-essential \
+	#
+	# addiontal modules
+	&& apt-get remove -y gdb lcov pkg-config \
+		libbz2-dev libffi-dev libgdbm-dev libgdbm-compat-dev liblzma-dev \
+      	libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev \
+      	lzma lzma-dev tk-dev uuid-dev zlib1g-dev \
 	#
 	# apt clean-up
     && apt-get autoremove -y  \
