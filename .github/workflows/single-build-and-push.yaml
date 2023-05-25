@@ -9,6 +9,7 @@ on:
           - debian
           - node18
           - python3.8
+          - aws-python3.8
 
 env:
   REGISTRY: ghcr.io
