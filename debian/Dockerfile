@@ -52,7 +52,7 @@ RUN apt-get update  \
     && apt-get install -y --reinstall ca-certificates \
     # 
     # install zsh
-    && apt-get install -y --no-install-recommends git ssh zip zsh curl less wget groff unzip rsync openssh-client \
+    && apt-get install -y --no-install-recommends git zip zsh curl less wget groff  unzip \
     #
 	# add non-root user
 	&& groupadd --gid $USER_GID $USERNAME \
