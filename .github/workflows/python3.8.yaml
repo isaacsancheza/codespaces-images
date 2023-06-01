@@ -16,7 +16,7 @@ on:
 
 jobs:
   build-and-push:
-    uses: ./github/workflows/build-and-push.yaml@master
+    uses: ./.github/workflows/build-and-push.yaml
     with:
       tag: python3.8
       context: python3.8

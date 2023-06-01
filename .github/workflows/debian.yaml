@@ -9,7 +9,7 @@ on:
 
 jobs:
   build-and-push:
-    uses: ./github/workflows/build-and-push.yaml@master
+    uses: ./.github/workflows/build-and-push.yaml
     with:
       tag: debian
       context: debian
