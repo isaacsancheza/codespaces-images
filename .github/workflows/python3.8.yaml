@@ -17,6 +17,9 @@ on:
 jobs:
   build-and-push:
     uses: ./.github/workflows/build-and-push.yaml
+    permissions:
+      contents: read
+      packages: write
     with:
       tag: python3.8
       context: python3.8
