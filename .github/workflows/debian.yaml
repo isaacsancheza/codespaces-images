@@ -1,0 +1,15 @@
+name: debian
+
+on:
+  push:
+    paths:
+      - debian/**
+    branches:
+      - master
+
+jobs:
+  build-and-push:
+    uses: ./github/workflows/build-and-push.yaml
+    with:
+      tag: debian
+      context: debian
