@@ -4,8 +4,8 @@ on:
   push:
     paths:
       - node18/**
-      - !node18/README.md
-      - !node18/.dockerignore
+      - '!node18/README.md'
+      - '!node18/.dockerignore'
     branches:
       - master
   workflow_run:

@@ -3,9 +3,9 @@ name: aws-node18
 on:
   push:
     paths:
-      - aws-node18/**
-      - !aws-node18/README.md
-      - !aws-node18/.dockerignore
+      - 'aws-node18/**'
+      - '!aws-node18/README.md'
+      - '!aws-node18/.dockerignore'
     branches:
       - master
   workflow_run:

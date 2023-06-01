@@ -4,8 +4,8 @@ on:
   push:
     paths:
       - debian/**
-      - !debian/README.md
-      - !debian/.dockerignore
+      - '!debian/README.md'
+      - '!debian/.dockerignore'
     branches:
       - master
   workflow_dispatch:
