@@ -3,7 +3,7 @@ name: node18
 on:
   push:
     paths:
-      - node18/**
+      - 'node18/**'
       - '!node18/README.md'
       - '!node18/.dockerignore'
     branches:
@@ -15,6 +15,7 @@ on:
       - debian
     branches:
       - master
+  workflow_dispatch:
 
 jobs:
   build-and-push:
