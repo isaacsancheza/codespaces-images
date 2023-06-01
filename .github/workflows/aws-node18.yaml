@@ -1,0 +1,27 @@
+name: aws-node18
+
+on:
+  push:
+    paths:
+      - aws-node18/**
+      - !aws-node18/README.md
+      - !aws-node18/.dockerignore
+    branches:
+      - master
+  workflow_run:
+    types:
+      - completed
+    workflows:
+      - aws-python3.8
+    branches:
+      - master
+
+jobs:
+  build-and-push:
+    permissions:
+      contents: read
+      packages: write
+    uses: ./.github/workflows/build-and-push.yaml
+    with:
+      tag: aws-node18
+      context: aws-node18
