@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - aws-python3.8/**
+      - !aws-python3.8/README.md
+      - !aws-python3.8/.dockerignore
     branches:
       - master
   workflow_run:
