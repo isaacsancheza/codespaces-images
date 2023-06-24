@@ -138,7 +138,7 @@ RUN set -eux; \
 RUN export DEBIAN_FRONTEND=noninteractive \
 	#
 	# basic deps
-	&& apt-get remove -y gnupg build-essential \
+	&& apt-get remove -y build-essential \
 	#
 	# addiontal modules
 	&& apt-get remove -y gdb lcov pkg-config \

@@ -94,7 +94,7 @@ RUN \
 # remove dependencies used to build node
 RUN export DEBIAN_FRONTEND=noninteractive \
     #
-    && apt-get remove -y gnupg libssl-dev build-essential \
+    && apt-get remove -y libssl-dev build-essential \
     #
     # apt clean-up
     && apt-get autoremove -y  \
