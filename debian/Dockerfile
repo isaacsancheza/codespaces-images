@@ -52,7 +52,7 @@ RUN apt-get update  \
     && apt-get install -y --reinstall ca-certificates \
     # 
     # install zsh
-    && apt-get install -y --no-install-recommends git zip zsh vim curl less wget groff unzip \
+    && apt-get install -y --no-install-recommends acl git zip zsh vim curl less wget groff unzip \
     #
 	# add non-root user
 	&& groupadd --gid $USER_GID $USERNAME \
@@ -113,3 +113,9 @@ RUN chmod 644 /usr/share/bash-completion/completions/todo
 
 # chown /codespace
 RUN chown -R $USERNAME:$USERNAME $WORKDIR
+
+# set default file permissions for workspace directory
+# https://www.baeldung.com/linux/new-files-dirs-default-permission
+# +X for directories only and not files
+# https://unix.stackexchange.com/questions/1314/how-to-set-default-file-permissions-for-all-folders-files-in-a-directory
+RUN setfacl -PRdm u::rwX,g::rw,o::r $WORKDIR
