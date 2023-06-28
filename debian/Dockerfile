@@ -118,4 +118,5 @@ RUN chown -R $USERNAME:$USERNAME $WORKDIR
 # https://www.baeldung.com/linux/new-files-dirs-default-permission
 # +X for directories only and not files
 # https://unix.stackexchange.com/questions/1314/how-to-set-default-file-permissions-for-all-folders-files-in-a-directory
-RUN setfacl -PRdm u::rwX,g::rwX,o::r $WORKDIR
+RUN setfacl -PRdm u::rwX,g::rwX,o::r $WORKDIR \
+    && setfacl -PRm u::rwX,g::rwX,o::r $WORKDIR
