@@ -1,4 +1,4 @@
-name: aws-python3.8
+name: aws-python3.10
 
 on:
   push:
