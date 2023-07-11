@@ -1,18 +1,18 @@
-name: aws-node18
+name: aws-cdk
 
 on:
   push:
     paths:
-      - 'aws-node18/**'
-      - '!aws-node18/README.md'
-      - '!aws-node18/.dockerignore'
+      - 'aws-cdk/**'
+      - '!aws-cdk/README.md'
+      - '!aws-cdk/.dockerignore'
     branches:
       - master
   workflow_run:
     types:
       - completed
     workflows:
-      - aws-python3.10
+      - aws-node18
     branches:
       - master
   workflow_dispatch:
@@ -24,5 +24,5 @@ jobs:
       packages: write
     uses: ./.github/workflows/build-and-push.yaml
     with:
-      tag: aws-node18
-      context: aws-node18
+      tag: aws-cdk
+      context: aws-cdk

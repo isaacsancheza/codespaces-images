@@ -5,7 +5,10 @@
 - aws-cli
 - aws-sam
 - node 18
-- python 3.8
+- python 3.10
     - pydot
+    - pyyaml
+    - chalice
     - cfn-lint
     - cookiecutter
+    - cfn-lint-serverless

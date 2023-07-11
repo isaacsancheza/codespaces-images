@@ -1,9 +1,12 @@
-# AWS Python 3.8
+# AWS CDK
 ## Contains
+- yarn
 - pipenv
 - aws-cli
 - aws-sam
-- python 3.8
+- aws-cdk
+- node 18
+- python 3.10
     - pydot
     - pyyaml
     - chalice

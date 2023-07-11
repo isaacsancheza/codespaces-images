@@ -1,9 +1,9 @@
-# AWS Python 3.8
+# AWS Python 3.9
 ## Contains
 - pipenv
 - aws-cli
 - aws-sam
-- python 3.8
+- python 3.9
     - pydot
     - pyyaml
     - chalice

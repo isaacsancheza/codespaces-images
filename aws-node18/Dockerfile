@@ -1,4 +1,4 @@
-FROM ghcr.io/isaacsancheza/images:aws-python3.8
+FROM ghcr.io/isaacsancheza/images:aws-python3.10
 
 ARG USERNAME=codespace
 
@@ -9,7 +9,7 @@ RUN apt-get update  \
     && apt-get install -y --no-install-recommends gnupg openssl libssl-dev build-essential
 
 # copied from https://github.com/nodejs/docker-node/blob/main/18/bullseye/Dockerfile
-ENV NODE_VERSION 18.16.0
+ENV NODE_VERSION 18.16.1
 
 RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && case "${dpkgArch##*-}" in \

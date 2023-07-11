@@ -13,7 +13,7 @@ RUN apt-get update  \
       	libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev \
       	lzma lzma-dev tk-dev uuid-dev zlib1g-dev
 
-# the following was copied from https://github.com/docker-library/python/blob/331890ef059fae05f84c652520b78c340526dc71/3.8/bullseye/Dockerfile
+# the following was copied from https://github.com/docker-library/python/blob/331890ef059fae05f84c652520b78c340526dc71/3.10/bullseye/Dockerfile
 
 # ensure local python is preferred over distribution python
 ENV PATH /usr/local/bin:$PATH
@@ -33,7 +33,7 @@ RUN set -eux; \
 	rm -rf /var/lib/apt/lists/*
 
 ENV GPG_KEY E3FF2839C048B25C084DEBE9B26995E310250568
-ENV PYTHON_VERSION 3.8.17
+ENV PYTHON_VERSION 3.8.16
 
 RUN set -eux; \
 	\
@@ -133,6 +133,7 @@ RUN set -eux; \
 	rm -f get-pip.py; \
 	\
 	pip --version
+
 
 # remove dependencies used to build python
 RUN export DEBIAN_FRONTEND=noninteractive \
