@@ -4,9 +4,10 @@
 - aws-cli
 - aws-sam
 - python 3.8
-    - pydot
     - pyyaml
     - chalice
-    - cfn-lint
+    - pydantic
+    - aws-cdk-lib
     - cookiecutter
-    - cfn-lint-serverless
+    - chalice[cdkv2]
+    - pydantic-settings
