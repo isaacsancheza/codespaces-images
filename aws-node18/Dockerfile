@@ -1,4 +1,4 @@
-FROM ghcr.io/isaacsancheza/images:aws-python3.10
+FROM ghcr.io/isaacsancheza/images:aws-python3.11
 
 ARG USERNAME=codespace
 

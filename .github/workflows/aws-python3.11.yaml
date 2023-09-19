@@ -1,18 +1,18 @@
-name: aws-node18
+name: aws-python3.11
 
 on:
   push:
     paths:
-      - 'aws-node18/**'
-      - '!aws-node18/README.md'
-      - '!aws-node18/.dockerignore'
+      - 'aws-python3.11/**'
+      - '!aws-python3.11/README.md'
+      - '!aws-python3.11/.dockerignore'
     branches:
       - master
   workflow_run:
     types:
       - completed
     workflows:
-      - aws-python3.11
+      - python3.11
     branches:
       - master
   workflow_dispatch:
@@ -24,5 +24,5 @@ jobs:
       packages: write
     uses: ./.github/workflows/build-and-push.yaml
     with:
-      tag: aws-node18
-      context: aws-node18
+      tag: aws-python3.11
+      context: aws-python3.11
