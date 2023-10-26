@@ -1,15 +1,17 @@
 # AWS CDK
+NodeJS Docker Image
+
 ## Contains
+- npm
+- pip
 - yarn
 - pipenv
 - aws-cli
 - aws-sam
-- aws-cdk
-- node 18
-- python 3.10
-    - pydot
-    - pyyaml
+- node 18.16.0
+- python 3.11.5
     - chalice
-    - cfn-lint
+    - pydantic
+    - aws-cdk-lib
     - cookiecutter
-    - cfn-lint-serverless
+    - chalice[cdkv2]
