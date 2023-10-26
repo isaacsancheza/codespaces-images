@@ -16,21 +16,6 @@ RUN apt-get update  \
     && apt-get clean -y  \
     && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
 
-# install todo.sh
-RUN git clone https://github.com/todotxt/todo.txt-cli todo \
-    #
-    && export INSTALL_DIR=/usr/local/bin/ \
-    #
-    && export CONFIG_DIR=$HOME/.todo/config \
-    #
-    # why this should be installed there
-    # https://unix.stackexchange.com/questions/416185/where-to-install-bash-completion-scripts-for-out-of-tree-packages
-    && export BASH_COMPLETION=/usr/share/bash-completion/completions/ \
-    #
-    && cd todo \
-    && make \
-    && make install
-
 # cd /codespace
 WORKDIR $WORKDIR
 
@@ -70,10 +55,6 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | d
     && apt update \
     && apt install -y gh
 
-# install todo.sh
-COPY --from=BASE /usr/local/bin/todo.sh /usr/local/bin/todo.sh
-COPY --from=BASE /usr/share/bash-completion/completions/todo /usr/share/bash-completion/completions/todo
-
 # copy oh-my-zsh installer
 COPY --from=BASE $WORKDIR/omz-installer.sh $WORKDIR/omz-installer.sh
 
@@ -107,9 +88,6 @@ RUN git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTO
 
 # go back to root user
 USER root
-
-# todo.sh permissions
-RUN chmod 644 /usr/share/bash-completion/completions/todo
 
 # chown /codespace
 RUN chown -R $USERNAME:$USERNAME $WORKDIR
