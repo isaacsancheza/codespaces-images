@@ -1,5 +1,4 @@
-# FROM ghcr.io/isaacsancheza/codespaces-images:debian
-FROM debian
+FROM ghcr.io/isaacsancheza/codespaces-images:debian
 
 # dependencies to build python
 RUN apt-get update  \
