@@ -22,7 +22,7 @@ jobs:
     permissions:
       contents: read
       packages: write
-    uses: ./.github/workflows/build-and-push.yaml
+    uses: isaacsancheza/workflows/.github/workflows/build-and-push.yaml@master
     with:
       tag: node18
       context: node18
