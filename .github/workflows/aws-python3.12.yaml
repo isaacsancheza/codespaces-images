@@ -1,0 +1,28 @@
+name: aws-python3.12
+
+on:
+  push:
+    paths:
+      - 'aws-python3.12/**'
+      - '!aws-python3.12/README.md'
+      - '!aws-python3.12/.dockerignore'
+    branches:
+      - master
+  workflow_run:
+    types:
+      - completed
+    workflows:
+      - python3.12
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build-and-push:
+    permissions:
+      contents: read
+      packages: write
+    uses: isaacsancheza/workflows/.github/workflows/build-and-push.yaml@master
+    with:
+      tag: aws-python3.12
+      context: aws-python3.12
