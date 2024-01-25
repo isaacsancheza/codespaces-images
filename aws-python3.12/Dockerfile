@@ -1,4 +1,4 @@
-FROM ghcr.io/isaacsancheza/codespaces-images:python3.11
+FROM ghcr.io/isaacsancheza/codespaces-images:python3.12
 
 # install python packages
 RUN pip --disable-pip-version-check --no-cache-dir install chalice pydantic aws-cdk-lib cookiecutter chalice[cdkv2]
