@@ -9,9 +9,6 @@ NodeJS Docker Image
 - aws-cli
 - aws-sam
 - node 18.16.0
-- python 3.11.5
-    - chalice
-    - pydantic
+- python 3.12.1
     - aws-cdk-lib
     - cookiecutter
-    - chalice[cdkv2]
