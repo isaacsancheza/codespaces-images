@@ -1,0 +1,28 @@
+name: python3.12
+
+on:
+  push:
+    paths:
+      - 'python3.12/**'
+      - '!python3.12/README.md'
+      - '!python3.12/.dockerignore'
+    branches:
+      - master
+  workflow_run:
+    types:
+      - completed
+    workflows:
+      - debian
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build-and-push:
+    uses: isaacsancheza/workflows/.github/workflows/build-and-push.yaml@master
+    permissions:
+      contents: read
+      packages: write
+    with:
+      tag: python3.12
+      context: python3.12
