@@ -1,4 +1,4 @@
-# AWS Python 3.11
+# AWS Python 3.12
 Python Docker Image
 
 ## Contains
@@ -6,9 +6,6 @@ Python Docker Image
 - pipenv
 - aws-cli
 - aws-sam
-- python 3.11.5
-    - chalice
-    - pydantic
+- python 3.12.1
     - aws-cdk-lib
     - cookiecutter
-    - chalice[cdkv2]
