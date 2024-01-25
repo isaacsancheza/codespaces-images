@@ -1,4 +1,4 @@
-FROM ghcr.io/isaacsancheza/images:debian
+FROM ghcr.io/isaacsancheza/codespaces-images:debian
 
 ARG USERNAME=codespace
 
